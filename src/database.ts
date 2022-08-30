@@ -3,7 +3,6 @@ import { Pool } from 'pg';
 
 dotenv.config();
 
-//this information is kept secure in the .env file
 const {
   POSTGRES_HOST,
   POSTGRES_USERNAME,
@@ -13,10 +12,10 @@ const {
   ENV,
 } = process.env;
 
-let client: Pool = new Pool();
+let Client: Pool = new Pool();
 
 if (ENV === 'test') {
-  client = new Pool({
+  Client = new Pool({
     host: POSTGRES_HOST,
     database: TEST_POSTGRES_DB,
     user: POSTGRES_USERNAME,
@@ -24,7 +23,7 @@ if (ENV === 'test') {
     port: 5432,
   });
 } else if (ENV === 'dev') {
-  client = new Pool({
+   Client = new Pool({
     host: POSTGRES_HOST,
     database: POSTGRES_DB,
     user: POSTGRES_USERNAME,
@@ -33,4 +32,4 @@ if (ENV === 'test') {
   });
 }
 
-export default client;
+export default Client;
