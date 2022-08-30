@@ -38,7 +38,7 @@ export class Cart {
       //@ts-ignore
       const conn = await client.connect();
       const sql =
-        'INSERT INTO orders_products (quantity, order_id, product_id) VALUES ($1, $2, $3) RETURNING *';
+        'INSERT INTO products_orders (quantity, order_id, product_id) VALUES ($1, $2, $3) RETURNING *';
       const result = await conn.query(sql, [quantity, orderId, productId]);
       conn.release();
       return result.rows[0];
@@ -48,7 +48,7 @@ export class Cart {
       );
     }
   }
-  //current order
+  
   async currentOrder(userId: string): Promise<Order[]> {
     try {
       //@ts-ignore
