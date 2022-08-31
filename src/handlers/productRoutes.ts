@@ -28,8 +28,8 @@ const create = async (_req: Request, res: Response) => {
     id: _req.body.id,
     name: _req.body.name,
     price: _req.body.price,
-    //category: _req.body.category,
-    numorders: _req.body.numorders,
+    category: _req.body.category,
+    orderscount: _req.body.numorders,
   };
 
   try {
@@ -55,7 +55,7 @@ const productsRoutes = (app: express.Application) => {
   app.get('/products', index);
   app.get('/products/id/:id', show);
   app.post('/products', create);
-  //app.get('/products/category/:category', productsByCategory);
+  app.get('/products/category/:category', productsByCategory);
 };
 
 export default productsRoutes;

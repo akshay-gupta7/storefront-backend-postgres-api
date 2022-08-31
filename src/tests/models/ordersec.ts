@@ -34,7 +34,8 @@ describe('Testing ORDERS Model', () => {
       id: 1,
       name: 'milk',
       price: 2,
-      numorders: 5,
+      category: 'dairy',
+      orderscount: 5,
     });
 
     const order1: Order = await cart.create({
