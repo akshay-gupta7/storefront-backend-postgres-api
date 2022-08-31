@@ -1,0 +1,99 @@
+import { Order, Cart } from '../../models/orders';
+import { User, UserInfo } from '../../models/users';
+import { Product, ProductInventory } from '../../models/products';
+
+const cart = new Cart();
+const userInfo = new UserInfo();
+const warehouse = new ProductInventory();
+
+describe('Testing ORDERS Model', () => {
+  //methods should exist
+  it('should have a create method', () => {
+    expect(userInfo.create).toBeDefined();
+  });
+  it('should have an addProduct method', () => {
+    expect(cart.addProduct).toBeDefined();
+  });
+
+  it('should have an currentOrder method', () => {
+    expect(cart.currentOrder).toBeDefined();
+  });
+
+  it('should have an completedOrders method', () => {
+    expect(cart.completedOrders).toBeDefined();
+  });
+
+  //testing all methods
+
+  //user1 (joseph fromm) was created in tests/handlers/ordersSpec file
+  //user2 (colin fromm) was created in tests/handlers/productsSpec file
+  //user3 (erin craven) was created in tests/handlers/usersSpec file
+  //user4 (leif woldseth) was created in tests/handlers/usersSpec file
+  //user5 (kelly woldseth) was created in tests/models/ordersSpec file
+
+  //applesProduct(id=1) was created in tests/handlers/ordersSpec file
+  //cakeProduct(id=2) was created in tests/handlers/productsSpec file
+  //eggsProduct(id=3) was created in tests/models/ordersSpec file
+
+  //order1 was created in tests/handlers/orderSpec file
+
+  //methods should work
+  it('create method should return created order', async () => {
+    const user1: User = await userInfo.create({
+      id: 1,
+      firstname: 'kelly',
+      lastname: 'woldseth',
+      password: 'pswd',
+    });
+    const product1: Product = await warehouse.createProduct({
+      id: 3,
+      name: 'eggs',
+      price: 4,
+      category: 'dairy',
+      numorders: 5,
+    });
+
+    const order1: Order = await cart.create({
+      id: 2,
+      userId: '1',
+      status: 'active',
+    });
+    expect(order1).toEqual({
+      id: 2,
+      userId: '1',
+      status: 'active',
+    });
+  });
+
+  //addProduct called once already in tests/handlers/orderSpec
+  it('addProduct method should add row to orders_products table', async () => {
+    const result = await cart.addProduct(4, '1', '1');
+    expect(result).toEqual({
+      id: 2,
+      quantity: 4,
+      order_id: '1',
+      product_id: '1',
+    });
+  });
+
+  it('currentOrder method should return list of current orders', async () => {
+    const result = await cart.currentOrder('1');
+    expect(result).toEqual([
+      {
+        id: 1,
+        userId: '1',
+        status: 'active',
+      },
+      {
+        id: 2,
+        userId: '1',
+        status: 'active',
+      },
+    ]);
+  });
+
+  it('completedOrders method should return list of current orders', async () => {
+    const result = await cart.completedOrders('1');
+    expect(result).toEqual([]);
+  });
+});
