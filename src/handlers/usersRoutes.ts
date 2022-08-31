@@ -1,5 +1,5 @@
-import express, { Request, Response } from 'express';
 import { User, UserInfo } from '../models/users';
+import express, { Request, Response } from 'express';
 import verifyAuthToken from '../util/verifyAuthToken';
 import jwt, { verify } from 'jsonwebtoken';
 
