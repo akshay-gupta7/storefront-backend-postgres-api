@@ -3,8 +3,9 @@ import { Product, ProductInventory } from '../../models/products';
 
 const warehouse = new ProductInventory();
 
-describe('Testing PRODUCTS Model', () => {
-  //methods should be defined
+//Checking to see existence of function definitions first
+/*describe('Testing PRODUCTS Model', () => {
+
   it('should have an index method', () => {
     expect(warehouse.index).toBeDefined();
   });
@@ -16,8 +17,6 @@ describe('Testing PRODUCTS Model', () => {
   it('should have a create method', () => {
     expect(warehouse.createProduct).toBeDefined();
   });
-
-  //order1 was created in tests/handlers/orderSpec file
 
   it('create method should return created product', async () => {
     const newProduct = await warehouse.createProduct({
@@ -61,3 +60,4 @@ describe('Testing PRODUCTS Model', () => {
   });
 
 });
+*/
