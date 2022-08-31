@@ -5,7 +5,6 @@ export type Product = {
   id: number;
   name: string;
   price: number;
-  category: string;
   numorders: number;
 };
 
@@ -41,11 +40,10 @@ export class ProductInventory {
       //@ts-ignore
       const conn = await Client.connect();
       const sql =
-        'INSERT INTO products (name, price, category, numorders) VALUES ($1, $2, $3, $4) RETURNING *';
+        'INSERT INTO products (name, price, orderscount) VALUES ($1, $2, $3) RETURNING *';
       const result = await conn.query(sql, [
         p.name,
         p.price,
-        p.category,
         p.numorders,
       ]);
       conn.release();

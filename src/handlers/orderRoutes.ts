@@ -7,7 +7,7 @@ const cart = new Cart();
 const create = async (_req: Request, res: Response) => {
   const order: Order = {
     id: _req.body.id,
-    userId: _req.body.userId,
+    userid: _req.body.userId,
     status: _req.body.status,
   };
   try {

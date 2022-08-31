@@ -3,7 +3,7 @@ import Client from '../database';
 
 export type Order = {
   id: number;
-  userId: string;
+  userid: string;
   status: string;
 };
 
@@ -12,10 +12,10 @@ export class Cart {
   async create(order: Order): Promise<Order> {
     try {
       //@ts-ignore
-      const conn = await client.connect();
+      const conn = await Client.connect();
       const sql =
-        'INSERT INTO orders (user_id, order_status) VALUES ($1, $2) RETURNING *';
-      const result = await conn.query(sql, [order.userId, order.status]);
+        'INSERT INTO orders (userId, status) VALUES ($1, $2) RETURNING *';
+      const result = await conn.query(sql, [order.userid, order.status]);
       conn.release();
 
       return result.rows[0];
@@ -36,7 +36,7 @@ export class Cart {
   }> {
     try {
       //@ts-ignore
-      const conn = await client.connect();
+      const conn = await Client.connect();
       const sql =
         'INSERT INTO products_orders (quantity, order_id, product_id) VALUES ($1, $2, $3) RETURNING *';
       const result = await conn.query(sql, [quantity, orderId, productId]);
@@ -52,8 +52,8 @@ export class Cart {
   async currentOrder(userId: string): Promise<Order[]> {
     try {
       //@ts-ignore
-      const conn = await client.connect();
-      const sql = `SELECT * FROM orders WHERE user_id=($1) AND order_status='active'`;
+      const conn = await Client.connect();
+      const sql = `SELECT * FROM orders WHERE userId=($1) AND status='active'`;
       const result = await conn.query(sql, [userId]);
       conn.release();
       return result.rows;
@@ -68,8 +68,8 @@ export class Cart {
   async completedOrders(userId: string): Promise<Order[]> {
     try {
       //@ts-ignore
-      const conn = await client.connect();
-      const sql = `SELECT * FROM orders WHERE user_id=($1) AND order_status='completed'`;
+      const conn = await Client.connect();
+      const sql = `SELECT * FROM orders WHERE userId=($1) AND status='completed'`;
       const result = await conn.query(sql, [userId]);
       conn.release();
       return result.rows;

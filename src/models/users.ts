@@ -42,7 +42,7 @@ export class UserInfo {
   async create(user: User): Promise<User> {
     try {
       //@ts-ignore
-      const conn = await client.connect();
+      const conn = await Client.connect();
       console.log("here in async create function");
       const sql =
         'INSERT INTO users (firstname, lastname, password) VALUES ($1, $2, $3) RETURNING *';
