@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import { Product, ProductInventory } from '../models/products';
 
+import verifyAuthToken from '../util/verifyAuthToken';
+
 const warehouse = new ProductInventory();
 
 const index = async (_req: Request, res: Response) => {
@@ -54,7 +56,7 @@ const productsByCategory = async (_req: Request, res: Response) => {
 const productsRoutes = (app: express.Application) => {
   app.get('/products', index);
   app.get('/products/id/:id', show);
-  app.post('/products', create);
+  app.post('/products', verifyAuthToken ,create);
   app.get('/products/category/:category', productsByCategory);
 };
 

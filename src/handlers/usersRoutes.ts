@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { User, UserInfo } from '../models/users';
-import jwt from 'jsonwebtoken';
+import verifyAuthToken from '../util/verifyAuthToken';
+import jwt, { verify } from 'jsonwebtoken';
 
 const userDatabase = new UserInfo();
 
@@ -69,9 +70,9 @@ const authenticate = async (_req: Request, res: Response) => {
 };
 
 const userRoutes = (app: express.Application) => {
-  app.get('/users',  index);
-  app.get('/users/:id',  show);
-  app.post('/users', create);
+    app.get('/users/:id', verifyAuthToken,  show);
+    app.get('/users', verifyAuthToken,  index);
+    app.post('/users', create);
 };
 
 export default userRoutes;

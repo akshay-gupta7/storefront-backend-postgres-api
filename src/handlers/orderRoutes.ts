@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { Order, Cart } from '../models/orders';
 
+import verifyAuthToken from '../util/verifyAuthToken';
 
 const cart = new Cart();
 
@@ -55,9 +56,9 @@ const completedOrders = async (_req: Request, res: Response) => {
 
 const orderRoutes = (app: express.Application) => {
   app.post('/orders', create);
-  app.get('/orders/current/:user_id',  currentOrder);
-  app.get('/orders/completed/:user_id', completedOrders);
-  app.post('/orders/:id/products', addProduct);
+  app.post('/orders/:id/products', verifyAuthToken, addProduct);
+  app.get('/orders/current/:user_id', verifyAuthToken, currentOrder);
+  app.get('/orders/completed/:user_id', verifyAuthToken, completedOrders);
 };
 
 export default orderRoutes;
