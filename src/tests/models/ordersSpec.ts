@@ -6,7 +6,7 @@ const cart = new Cart();
 const userInfo = new UserInfo();
 const warehouse = new ProductInventory();
 
-/*
+
 //Checking existence of Orders basic methods and thn their working outputs
 describe('Testing ORDERS Model', () => {
 
@@ -26,7 +26,7 @@ describe('Testing ORDERS Model', () => {
   });
 
   it('create method should return created order', async () => {
-    /*const user1: User = await userInfo.create({
+    const user1: User = await userInfo.create({
       id: 1,
       firstname: 'akshay',
       lastname: 'gupta',
@@ -34,31 +34,31 @@ describe('Testing ORDERS Model', () => {
     });
     const product1: Product = await warehouse.createProduct({
       id: 1,
-      name: 'milk',
+      name: 'bread',
       price: 2,
       category: 'dairy',
       orderscount: 5,
     });
 
     const order1: Order = await cart.create({
-      id: 16,
-      userid: '19',
+      id: 2,
+      userid: '1',
       status: 'active',
     });
     expect(order1).toEqual({
-      id: 16,
-      userid: '19',
+      id: 2,
+      userid: '1',
       status: 'active',
     });
   });
 
   it('addProduct method should add row to products_orders table', async () => {
-    const result = await cart.addProduct(4, '13', '18');
+    const result = await cart.addProduct(4, '1', '1');
     expect(result).toEqual({
-      id: 19,
+      id: 2,
       quantity: 4,
-      order_id: '13',
-      product_id: '18',
+      order_id: '1',
+      product_id: '1',
     });
   });
 
@@ -73,4 +73,3 @@ describe('Testing ORDERS Model', () => {
   });
 });
 
-*/

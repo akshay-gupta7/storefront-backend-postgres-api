@@ -4,7 +4,7 @@ import { Product, ProductInventory } from '../../models/products';
 const warehouse = new ProductInventory();
 
 //Checking to see existence of function definitions first
-/*describe('Testing PRODUCTS Model', () => {
+describe('Testing PRODUCTS Model', () => {
 
   it('should have an index method', () => {
     expect(warehouse.index).toBeDefined();
@@ -20,14 +20,14 @@ const warehouse = new ProductInventory();
 
   it('create method should return created product', async () => {
     const newProduct = await warehouse.createProduct({
-      id: 22,
+      id: 4,
       name: 'pineapple',
       price: 1,
       category: 'fruits',
       orderscount: 3,
     });
     expect(newProduct).toEqual({
-      id: 22,
+      id: 4,
       name: 'pineapple',
       price: 1,
       category: 'fruits',
@@ -37,9 +37,9 @@ const warehouse = new ProductInventory();
   });
 
   it('show method should return one product', async () => {
-    const result = await warehouse.showProduct('22');
+    const result = await warehouse.showProduct('4');
     expect(result).toEqual({
-      id: 22,
+      id: 4,
       name: 'pineapple',
       category: 'fruits',
       price: 1,
@@ -60,4 +60,3 @@ const warehouse = new ProductInventory();
   });
 
 });
-*/

@@ -3,7 +3,7 @@ import supertest from 'supertest';
 import { User, UserInfo } from '../../models/users';
 import { Product, ProductInventory } from '../../models/products';
 
-/*const request = supertest(app);
+const request = supertest(app);
 const userInfo = new UserInfo();
 const warehouse = new ProductInventory();
 
@@ -14,9 +14,9 @@ describe('Testing Orders endpoints', () => {
     const userPaige = await request
       .post('/users')
       .send({
-        id: 26,
-        firstname: 'Paige',
-        lastname: 'Wilson',
+        id: 1,
+        firstname: 'paige',
+        lastname: 'wilson',
         password: 'test@123',
       })
       .set('Accept', 'application/json');
@@ -37,8 +37,8 @@ describe('Testing Orders endpoints', () => {
     const response = await request
       .post('/orders')
       .send({
-        id: 19,
-        userid: '19',
+        id: 1,
+        userid: '1',
         status: 'active',
       })
       .set('authorization', `Bearer ${token}`);
@@ -47,9 +47,9 @@ describe('Testing Orders endpoints', () => {
 
   it('POST request to Add a Product TO an Order should work and return 200', async () => {
     const response = await request
-      .post('/orders/13/products')
+      .post('/orders/1/products')
       .send({
-        product_id: '19',
+        product_id: '1',
         quantity: '15',
       })
       .set('authorization', `Bearer ${token}`);
@@ -57,7 +57,7 @@ describe('Testing Orders endpoints', () => {
   });
 
   it('GET request to return the current orders with the order id parameter should work and return 200', async () => {
-    const response = await request.get('/orders/current/13').set('authorization', `Bearer ${token}`);
+    const response = await request.get('/orders/current/1').set('authorization', `Bearer ${token}`);
     expect(response.status).toBe(200);
   });
 
@@ -66,4 +66,3 @@ describe('Testing Orders endpoints', () => {
     expect(response.status).toBe(200);
   });
 });
-*/
