@@ -20,6 +20,8 @@ Your application must make use of the following libraries:
 
 psql -U postgres CREATE USER udacity WITH PASSWORD 'secret@123'; CREATE DATABASE storefront_db; CREATE DATABSE storefront_test; \c storefront_db GRANT ALL PRIVILEGES ON DATABASE storefront_db TO udacity; \c storefront_test GRANT ALL PRIVILEGES ON DATABASE storefront_test TO udacity;
 
+.env file is attached in repo for review purpose
+
 ### 2.  DB Creation and Migrations
 
 Now that you have the structure of the databse outlined, it is time to create the database and migrations. Add the npm packages dotenv and db-migrate that we used in the course and setup your Postgres database. If you get stuck, you can always revisit the database lesson for a reminder. 
