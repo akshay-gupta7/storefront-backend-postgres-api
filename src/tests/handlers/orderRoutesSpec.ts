@@ -3,7 +3,7 @@ import supertest from 'supertest';
 import { User, UserInfo } from '../../models/users';
 import { Product, ProductInventory } from '../../models/products';
 
-const request = supertest(app);
+/*const request = supertest(app);
 const userInfo = new UserInfo();
 const warehouse = new ProductInventory();
 
@@ -66,3 +66,4 @@ describe('Testing Orders endpoints', () => {
     expect(response.status).toBe(200);
   });
 });
+*/
