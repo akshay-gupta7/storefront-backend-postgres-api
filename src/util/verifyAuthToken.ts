@@ -8,6 +8,7 @@ const verifyAuthToken = (_req: Request, res: Response, next: any): void => {
     jwt.verify(token, process.env.TOKEN_SECRET as jwt.Secret);
     next();
   } catch (error) {
+    console.log("Here, failed");
     res.status(401);
   }
 };

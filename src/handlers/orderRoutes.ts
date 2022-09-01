@@ -8,13 +8,14 @@ const cart = new Cart();
 const create = async (_req: Request, res: Response) => {
   const order: Order = {
     id: _req.body.id,
-    userid: _req.body.userId,
+    userid: _req.body.userid,
     status: _req.body.status,
   };
   try {
     const newOrder = await cart.create(order);
     res.json(newOrder);
   } catch (err) {
+    console.log(err);
     res.status(400);
     res.json(err);
   }
@@ -29,6 +30,7 @@ const addProduct = async (_req: Request, res: Response) => {
     const addedProduct = await cart.addProduct(quantity, orderId, productId);
     res.json(addedProduct);
   } catch (err) {
+    console.log(err);
     res.status(400);
     res.json(err);
   }
