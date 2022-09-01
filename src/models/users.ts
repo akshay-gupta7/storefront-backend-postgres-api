@@ -26,16 +26,16 @@ export class UserInfo {
     }
   }
 
-  async show(id: number): Promise<User> {
+  async show(userid: number): Promise<User> {
     try {
       const conn = await Client.connect();
       console.log("here in show function");
       const sql = 'SELECT * FROM users WHERE id = ($1)';
-      const result = await conn.query(sql, [id]);
+      const result = await conn.query(sql, [userid]);
       conn.release();
       return result.rows[0];
     } catch (err) {
-      throw new Error(`Error in finding user ${id}. Error: ${err}`);
+      throw new Error(`Error in finding user ${userid}. Error: ${err}`);
     }
   }
 
