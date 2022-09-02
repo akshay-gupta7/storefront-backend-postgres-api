@@ -27,7 +27,7 @@ describe('Testing PRODUCTS Model', () => {
       orderscount: 3,
     });
     expect(newProduct).toEqual({
-      id: 4,
+      id: 3,
       name: 'pineapple',
       price: 1,
       category: 'fruits',
@@ -37,13 +37,13 @@ describe('Testing PRODUCTS Model', () => {
   });
 
   it('show method should return one product', async () => {
-    const result = await warehouse.showProduct('4');
+    const result = await warehouse.showProduct('2');
     expect(result).toEqual({
-      id: 4,
-      name: 'pineapple',
-      category: 'fruits',
-      price: 1,
-      orderscount: 3,
+      id: 2,
+      name: 'bread',
+      category: 'dairy',
+      price: 2,
+      orderscount: 1,
     });
   });
 
