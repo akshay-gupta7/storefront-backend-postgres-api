@@ -3,7 +3,7 @@ import { User, UserInfo } from '../../models/users';
 const userInfo = new UserInfo();
 
 //Check existence of all users functions:
-/*describe('Testing USERS Model', () => {
+describe('Testing USERS Model', () => {
   it('should have an index method', () => {
     expect(userInfo.index).toBeDefined();
   });
@@ -18,39 +18,36 @@ const userInfo = new UserInfo();
 
   it('create method should add a user', async () => {
     const newUser = await userInfo.create({
-      id: 23,
+      id: 6,
       firstname: 'lee',
       lastname: 'gomes',
       password: 'test@123',
     });
-    expect(newUser.id).toEqual(23);
+    expect(newUser.id).toEqual(6);
     expect(newUser.firstname).toEqual('lee');
     expect(newUser.lastname).toEqual('gomes');
   });
 
   it('index method should return a list of users', async () => {
     const result = await userInfo.index();
-    expect(result[0].id).toEqual(19);
-    expect(result[0].firstname).toEqual('akshay');
-    expect(result[0].lastname).toEqual('gupta');
-    expect(result[1].id).toEqual(20);
-    expect(result[1].firstname).toEqual('mudit');
-    expect(result[1].lastname).toEqual('pandey');
+    expect(result[0].id).toEqual(1);
+    expect(result[0].firstname).toEqual('paige');
+    expect(result[0].lastname).toEqual('wilson');
+    expect(result[1].id).toEqual(2);
+    expect(result[1].firstname).toEqual('denise');
+    expect(result[1].lastname).toEqual('hadley');
   });
 
   it('show method should return one user', async () => {
-    const result = await userInfo.show(20);
-    expect(result.id).toEqual(20);
-    expect(result.firstname).toEqual('mudit');
-    expect(result.lastname).toEqual('pandey');
+    const result = await userInfo.show(2);
+    expect(result.id).toEqual(2);
+    expect(result.firstname).toEqual('denise');
+    expect(result.lastname).toEqual('hadley');
   });
 
-  /*it('authenticate method should return one user', async () => {
-    const pass = await userInfo.authenticate('akshay', 'gupta', 'test@123');
+  it('authenticate method should return one user', async () => {
+    const pass = await userInfo.authenticate('lee', 'gomes', 'test@123');
     expect(pass).not.toEqual(null);
   });
-}
-
 });
 
-*/

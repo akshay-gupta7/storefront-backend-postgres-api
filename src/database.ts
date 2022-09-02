@@ -5,7 +5,7 @@ dotenv.config();
 
 const {
   POSTGRES_HOST,
-  POSTGRES_USERNAME,
+  POSTGRES_USER,
   POSTGRES_PASSWORD,
   POSTGRES_DB,
   POSTGRES_TEST_DB,
@@ -18,7 +18,7 @@ if (ENV === 'test') {
   Client = new Pool({
     host: POSTGRES_HOST,
     database: POSTGRES_TEST_DB,
-    user: POSTGRES_USERNAME,
+    user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
     port: 5432,
   });
@@ -26,7 +26,7 @@ if (ENV === 'test') {
    Client = new Pool({
     host: POSTGRES_HOST,
     database: POSTGRES_DB,
-    user: POSTGRES_USERNAME,
+    user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
     port: 5432,
   });
