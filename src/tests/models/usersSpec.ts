@@ -23,7 +23,7 @@ describe('Testing USERS Model', () => {
       lastname: 'gomes',
       password: 'test@123',
     });
-    expect(newUser.id).toEqual(1);
+    expect(newUser.id).toEqual(6);
     expect(newUser.firstname).toEqual('lee');
     expect(newUser.lastname).toEqual('gomes');
   });
@@ -34,20 +34,20 @@ describe('Testing USERS Model', () => {
     expect(result[0].firstname).toEqual('paige');
     expect(result[0].lastname).toEqual('wilson');
     expect(result[1].id).toEqual(2);
-    expect(result[1].firstname).toEqual('lee');
-    expect(result[1].lastname).toEqual('gomes');
+    expect(result[1].firstname).toEqual('denise');
+    expect(result[1].lastname).toEqual('hadley');
   });
 
   it('show method should return one user', async () => {
-    const result = await userInfo.show(1);
+    const result = await userInfo.show(2);
     expect(result.id).toEqual(2); 
-    expect(result.firstname).toEqual('paige');
-    expect(result.lastname).toEqual('wilson');
+    expect(result.firstname).toEqual('denise');
+    expect(result.lastname).toEqual('hadley');
   });
 
   it('authenticate method should return one user', async () => {
     const pass = await userInfo.authenticate('lee', 'gomes', 'test@123');
-    expect(pass).toBeDefined();
+    expect(pass).not.toEqual(null);
   });
 });
 

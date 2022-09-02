@@ -65,7 +65,8 @@ describe('Testing ORDERS Model', () => {
   it('currentOrder method should return list of current orders', async () => {
     const result = await cart.currentOrder('1');
     expect(result).toBeDefined();
-  });
+  }); 
+  
 
   it('completedOrders method should return list of current orders', async () => {
     const result = await cart.completedOrders('1');

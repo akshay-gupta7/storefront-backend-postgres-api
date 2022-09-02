@@ -27,7 +27,7 @@ describe('Testing PRODUCTS Model', () => {
       orderscount: 3,
     });
     expect(newProduct).toEqual({
-      id: 3,
+      id: 4,
       name: 'pineapple',
       price: 1,
       category: 'fruits',
@@ -40,9 +40,9 @@ describe('Testing PRODUCTS Model', () => {
     const result = await warehouse.showProduct('2');
     expect(result).toEqual({
       id: 2,
-      name: 'bread',
-      category: 'dairy',
-      price: 2,
+      name: 'pear',
+      category: 'fruits',
+      price: 3,
       orderscount: 1,
     });
   });
@@ -60,3 +60,5 @@ describe('Testing PRODUCTS Model', () => {
   });
 
 });
+
+
