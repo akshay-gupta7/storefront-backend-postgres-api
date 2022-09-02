@@ -20,7 +20,16 @@ Your application must make use of the following libraries:
 
 psql -U postgres CREATE USER udacity WITH PASSWORD 'secret@123'; CREATE DATABASE storefront_db; CREATE DATABSE storefront_test; \c storefront_db GRANT ALL PRIVILEGES ON DATABASE storefront_db TO udacity; \c storefront_test GRANT ALL PRIVILEGES ON DATABASE storefront_test TO udacity;
 
-.env file is attached in repo for review purpose
+Details to be included in .env file: 
+POSTGRES_HOST = 127.0.0.1
+POSTGRES_DB = storefront_db
+POSTGRES_TEST_DB = storefront_test
+POSTGRES_USER = udacity
+POSTGRES_PASSWORD = secret@123
+ENV=dev
+TOKEN_SECRET=akshay@123
+BCRYPT_PASSWORD=secret@123
+SALT_ROUNDS=10
 
 ### 2.  Running tests
 
